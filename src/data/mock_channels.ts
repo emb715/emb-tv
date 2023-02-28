@@ -36,7 +36,7 @@ const channels: Channel[] = [
           "sports"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA3LzEwLzcxMDEzMTlfMjVBMzRCRTZERDY4QTg2NS5wbmc=",
+          "url": "./assets/7101319_25A34BE6DD68A865.png",
           "sourceWidth": 639,
           "sourceHeight": 585
       },
@@ -60,7 +60,7 @@ const channels: Channel[] = [
           "series"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2LzQwLzY0MDIwMjVfNzkzMDI5N0U4NDZFRjMzQi5wbmc=",
+          "url": "./assets/6402025_7930297E846EF33B.png",
           "sourceWidth": 599,
           "sourceHeight": 585
       },
@@ -84,7 +84,7 @@ const channels: Channel[] = [
           "series"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA4LzM1LzgzNTUxNjJfOUQ1RjcwNDIxRUJGQjg0Qi5wbmc=",
+          "url": "./assets/8355162_9D5F70421EBFB84B.png",
           "sourceWidth": 788,
           "sourceHeight": 585
       },
@@ -113,7 +113,7 @@ const channels: Channel[] = [
           "series"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2LzQwLzY0MDIwMjlfNjNDNjk5RTBFQTFFRkVCNi5wbmc=",
+          "url": "./assets/6402029_63C699E0EA1EFEB6.png",
           "sourceWidth": 491,
           "sourceHeight": 585
       },
@@ -141,7 +141,7 @@ const channels: Channel[] = [
           "movies"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2LzQwLzY0MDA2MDNfREUwQ0JCN0I3MzJCNTU2QS5wbmc=",
+          "url": "./assets/6400603_DE0CBB7B732B556A.png",
           "sourceWidth": 1077,
           "sourceHeight": 585
       },
@@ -169,7 +169,7 @@ const channels: Channel[] = [
           "movies"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2Lzg0LzY4NDA3MjBfQUVCMEQ4OURENUI5RkE0Qy5wbmc=",
+          "url": "./assets/6840720_AEB0D89DD5B9FA4C.png",
           "sourceWidth": 588,
           "sourceHeight": 585
       },
@@ -198,7 +198,7 @@ const channels: Channel[] = [
           "series"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2LzQwLzY0MDQxNjVfNzJEMDM5MkZDQzY2MDcxOC5wbmc=",
+          "url": "./assets/6404165_72D0392FCC660718.png",
           "sourceWidth": 687,
           "sourceHeight": 585
       },
@@ -221,7 +221,7 @@ const channels: Channel[] = [
           "news"
       ],
       "image": {
-          "url": "aHR0cDovL21lZGlhLmd2cC50ZWxlZm9uaWNhLmNvbS9zdG9yYWdlYXJlYTAvSU1BR0VTLzAwLzA2LzQwLzY0MDQ0MDBfNzE1RjI0QkRBMjc0QzBEMS5wbmc=",
+          "url": "./assets/6404400_715F24BDA274C0D1.png",
           "sourceWidth": 603,
           "sourceHeight": 585
       },

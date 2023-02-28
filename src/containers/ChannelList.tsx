@@ -6,10 +6,6 @@ function ChannelList() {
   const { onChangeChannel, onNextChannel, onPrevChannel, list, channel } =
     useChannelContext();
   const channels: Channel[] = Array.from(list.values());
-  const decodedChannels = channels.map((channel) => ({
-    ...channel,
-    image: { ...channel.image, url: atob(channel.image.url) },
-  }));
 
   if (!channels.length || !channel) {
     return null;
@@ -20,7 +16,7 @@ function ChannelList() {
       onPressChannel={onChangeChannel}
       onNextChannel={onNextChannel}
       onPrevChannel={onPrevChannel}
-      channels={decodedChannels}
+      channels={channels}
       currentChannel={channel}
     />
   );
