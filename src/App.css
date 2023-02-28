@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+:root {
+  --main-bg-color: #141414;
+  --main-primary: #d53a9d;
+  --main-primary-color: 213 58 157;
+  --main-dark-color: 32, 32, 41;
+  --main-dark: rgba(32, 32, 41, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+#app {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.video-container {
+  max-width: 100vw;
+  max-height: 80vh;
+  background-color: black;
+}
+.shaka-video {
+  width: 100%;
+  /* height: 100%; */
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+}
+
+.channel-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 1rem 0;
+  justify-content: center;
+}
+
+.channel-list > .channel-list__item {
+  max-width: 100px;
+  max-height: 100px;
+  width: 10vw;
+  height: 10vw;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 0.725rem;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    140deg,
+    rgba(0, 0, 0, 1) 3%,
+    rgba(32, 32, 41, 1) 40%,
+    rgb(60 60 60 / 100%) 70%,
+    rgb(116 58 213 / 40%) 100%
+  );
+  background-size: 400% 100%;
+
+  margin: 0 0.5rem;
+
+  cursor: pointer;
+
+  transition: all 250ms ease-in-out;
+}
+.channel-list > .channel-list__item:hover {
+  /* border-color: rgba(32, 32, 41, 1); */
+  /* border-color: rgb(0 0 0 / 30%); */
+  background-size: 200%;
+  background-position: center;
+}
+.channel-list > .channel-list__item.channel-list__item--ACTIVE,
+.channel-list > .channel-list__item:active {
+  /* border: 1px solid #c51cc1; */
+  /* border: 1px solid #d53a9d; */
+  box-shadow: 0px 0px 3px 0px #d53a9d;
+}
+.channel-list > .channel-list__item[disabled].channel-list__item--ACTIVE {
+  pointer-events: none;
+  background: linear-gradient(
+    150deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(32, 32, 41, 1) 60%,
+    rgba(60, 60, 60, 1) 100%
+  );
+  background-size: 400% 100%;
+}
+
+.channel-list > .channel-list__item h3 {
+  display: none;
+}
+.channel-list > .channel-list__item img {
+  max-width: 100%;
+}
