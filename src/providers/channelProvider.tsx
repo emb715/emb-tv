@@ -1,6 +1,15 @@
 import React from "react";
 import type { Channel } from "../data/mock_channels";
 
+function saveChannelId(channelId: Channel["id"]) {
+  localStorage.setItem("channelId", JSON.stringify(channelId));
+}
+
+function getChannelId() {
+  const item = localStorage.getItem("channelId");
+  return item ? JSON.parse(item) : null;
+}
+
 const actions = {
   CHANGE_CHANNEL: "CHANGE_CHANNEL",
 };
@@ -50,14 +59,20 @@ function reducer(state: ChannelContextState, action: ChannelContextAction) {
 
 function ChannelProvider({
   children,
-  defaultChannel,
+  defaultChannelId,
   channelList,
 }: {
   children: React.ReactNode;
-  defaultChannel: Channel;
+  defaultChannelId?: Channel["id"];
   channelList: Channel[];
 }) {
+  const savedChannelId = getChannelId();
+  const currentChannelId = savedChannelId || defaultChannelId;
+  const defaultChannel =
+    channelList.find((c) => c.id === currentChannelId) ?? channelList[0];
+
   const list = new Map(channelList.map((channel) => [channel.id, channel]));
+
   const [state, dispatch] = React.useReducer(reducer, {
     ...initialState,
     channel: defaultChannel,
@@ -73,6 +88,7 @@ function ChannelProvider({
       }
       const payload = state.list.get(channelId);
       payload && dispatch({ type: actions.CHANGE_CHANNEL, payload });
+      payload && saveChannelId(channelId);
     },
     onNextChannel: () => {},
     onPrevChannel: () => {},

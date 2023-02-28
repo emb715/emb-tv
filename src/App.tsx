@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <ChannelProvider defaultChannel={currentChannel} channelList={channels}>
+      <ChannelProvider channelList={channels}>
         <div id="app" ref={appRef}>
           <Player />
 
