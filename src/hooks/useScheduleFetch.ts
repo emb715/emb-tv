@@ -161,8 +161,7 @@ function useScheduleFetch<T = ScheduleType>(
       if (!data || !data?.Content) {
         throw new Error('No data')
       }
-      const programs = transformer(data.Content)  
-      console.log('LOG: > onSuccess > programs:', programs)
+      const programs = transformer(data.Content)
       const programsGrouped = groupBy(programs, "liveChannelPid") as T;
       dispatch({ type: 'fetched', payload: programsGrouped})
     } catch (error) {
