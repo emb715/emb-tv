@@ -5,7 +5,7 @@ import { ChannelListSimple } from "../components/ChannelListSimple/ChannelListSi
 function ChannelList() {
   const { onChangeChannel, onNextChannel, onPrevChannel, list, channel } =
     useChannelContext();
-  const channels: Channel[] = Array.from(list.values());
+  const channels: Channel[] = Object.values(list || {});
 
   if (!channels.length || !channel) {
     return null;

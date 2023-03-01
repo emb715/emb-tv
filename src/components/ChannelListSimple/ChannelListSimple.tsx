@@ -13,6 +13,7 @@ function ChannelListSimple({
   channels: Channel[];
   currentChannel: Channel;
 }) {
+  // TODO: scroll position center to active channel
   return (
     <>
       <div className="channel-list">

@@ -19,14 +19,16 @@ type ChannelContextAction = {
   payload: Channel;
 };
 
+type ChannelList = Record<Channel["id"], Channel>;
+
 type ChannelContextState = {
   channel?: Channel;
-  list: Map<Channel["id"], Channel>;
+  list?: ChannelList;
 };
 
 type ChannelContextType = {
   channel?: Channel;
-  list: ChannelContextState["list"];
+  list?: ChannelContextState["list"];
   onChangeChannel: (channelId: Channel["id"]) => void;
   onNextChannel: () => void;
   onPrevChannel: () => void;
@@ -34,7 +36,7 @@ type ChannelContextType = {
 
 const ChannelContext = React.createContext<ChannelContextType>({
   channel: undefined,
-  list: new Map(),
+  list: undefined,
   onChangeChannel: () => {},
   onNextChannel: () => {},
   onPrevChannel: () => {},
@@ -42,7 +44,7 @@ const ChannelContext = React.createContext<ChannelContextType>({
 
 const initialState: ChannelContextState = {
   channel: undefined,
-  list: new Map(),
+  list: undefined,
 };
 //Reducer to Handle Actions
 function reducer(state: ChannelContextState, action: ChannelContextAction) {
@@ -71,7 +73,10 @@ function ChannelProvider({
   const defaultChannel =
     channelList.find((c) => c.id === currentChannelId) ?? channelList[0];
 
-  const list = new Map(channelList.map((channel) => [channel.id, channel]));
+  const list = channelList.reduce(
+    (acc, channel) => ({ ...acc, [channel.id]: channel }),
+    {}
+  ) as ChannelList;
 
   const [state, dispatch] = React.useReducer(reducer, {
     ...initialState,
@@ -83,15 +88,43 @@ function ChannelProvider({
     channel: state.channel,
     list: state.list,
     onChangeChannel: (channelId: Channel["id"]) => {
-      if (!state.list.has(channelId)) {
+      if (!state.list || !state.list[channelId]) {
         return;
       }
-      const payload = state.list.get(channelId);
+      const payload = state.list[channelId];
       payload && dispatch({ type: actions.CHANGE_CHANNEL, payload });
       payload && saveChannelId(channelId);
     },
-    onNextChannel: () => {},
-    onPrevChannel: () => {},
+    onNextChannel: () => {
+      if (!state.channel || !state.list) {
+        return;
+      }
+      const channelIds = Object.keys(state.list);
+      const currentChannelIndex = channelIds.indexOf(state.channel.id);
+      const nextChannelIndex =
+        currentChannelIndex + 1 >= channelIds.length
+          ? 0
+          : currentChannelIndex + 1;
+      const nextChannelId = channelIds[nextChannelIndex];
+      const payload = state.list[nextChannelId];
+      payload && dispatch({ type: actions.CHANGE_CHANNEL, payload });
+      payload && saveChannelId(nextChannelId);
+    },
+    onPrevChannel: () => {
+      if (!state.channel || !state.list) {
+        return;
+      }
+      const channelIds = Object.keys(state.list);
+      const currentChannelIndex = channelIds.indexOf(state.channel.id);
+      const prevChannelIndex =
+        currentChannelIndex - 1 < 0
+          ? channelIds.length - 1
+          : currentChannelIndex - 1;
+      const prevChannelId = channelIds[prevChannelIndex];
+      const payload = state.list[prevChannelId];
+      payload && dispatch({ type: actions.CHANGE_CHANNEL, payload });
+      payload && saveChannelId(prevChannelId);
+    },
   };
 
   return (
