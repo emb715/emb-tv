@@ -50,19 +50,43 @@
   /* font-size: 1.725rem; */
 }
 
+/*add this to mobile and the other on top to media query */
 .guide__list > .guide__item > .guide__item-time {
-  position: absolute;
-  /* top: 0.75rem;
-  right: 0.75rem; */
-  top: 1.5rem;
-  right: 1.5rem;
+  margin-top: -1rem;
+  margin-right: -1.2rem;
+  text-align: right;
+  cursor: default;
+}
+
+.guide__list > .guide__item > .guide__item-time span {
+  display: inline-block;
   padding: 0.275rem;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 0.725rem;
-
   cursor: default;
+}
+.guide__list > .guide__item.guide__item--STARTED > .guide__item-time span {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(0, 0, 0, 0.55) !important;
+}
+
+@media (min-width: 768px) {
+  .guide__list > .guide__item > .guide__item-time {
+    position: absolute;
+    /* top: 0.75rem;
+    right: 0.75rem; */
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.275rem;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 0.725rem;
+
+    cursor: default;
+  }
 }
 
 .guide__list > .guide__item > .guide__item-percentage {
@@ -129,7 +153,7 @@
   background-repeat: repeat;
 }
 
-.guide__list > .guide__item.guide__item--STARTED > .guide__item-time {
+.guide__list > .guide__item.guide__item--STARTED > .guide__item-time span {
   background-color: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(0, 0, 0, 0.55);
 }
