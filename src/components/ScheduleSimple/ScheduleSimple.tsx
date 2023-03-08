@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { orderBy } from 'lodash'
 import { useInterval } from '../../hooks/useInterval'
 import { getTimeSpan, TimeSpan } from '../../utils/getTimeSpan'
@@ -35,16 +35,14 @@ type ScheduleSimpleProps = {
 }
 
 function ScheduleSimple({ scheduleGroup, loading, error }: ScheduleSimpleProps) {
-  const getTimes = () => {
+  const getTimes = useCallback(() => {
     if (!scheduleGroup) {
       return []
     }
     const scheduleOrdered = orderBy(scheduleGroup, ['start'], ['asc'])
-    const times: TimeSpan[] = scheduleOrdered.map((item) =>
-      getTimeSpan(item.start, item.end, { timeOf: 'seconds' })
-    )
+    const times: TimeSpan[] = scheduleOrdered.map((item) => getTimeSpan(item.start, item.end))
     return times
-  }
+  }, [scheduleGroup])
   const [scheduleTimes, setScheduleTimes] = useState<TimeSpan[]>(getTimes())
 
   // Init Interval
@@ -54,7 +52,7 @@ function ScheduleSimple({ scheduleGroup, loading, error }: ScheduleSimpleProps) 
 
   useEffect(() => {
     setScheduleTimes(getTimes())
-  }, [scheduleGroup])
+  }, [scheduleGroup, getTimes])
 
   if (error) {
     return NoPrograms()
