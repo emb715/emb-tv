@@ -1,1 +1,1 @@
-export * from "./ScheduleSimple";
+export * from './ScheduleSimple'

@@ -1,12 +1,12 @@
-import { ShakaPlayer } from "../components/ShakaPlayer";
-import { useChannelContext } from "../providers/channelProvider";
-import { useEventListener } from "../hooks/useEventListener";
+import { ShakaPlayer } from '../components/ShakaPlayer'
+import { useChannelContext } from '../providers/channelProvider'
+// import { useEventListener } from "../hooks/useEventListener"
 
 function Player() {
-  const { channel } = useChannelContext();
+  const { channel } = useChannelContext()
 
   if (!channel) {
-    return null;
+    return null
   }
 
   const decodedChannel = {
@@ -17,7 +17,7 @@ function Player() {
       type: atob(con.type),
       license: atob(con.license),
     })),
-  };
+  }
 
   // .map((channel) => ({
   //   ...channel,
@@ -43,7 +43,7 @@ function Player() {
   // useEventListener("keydown", configKeyboardListener);
 
   // TODO: add more player options and props
-  return <ShakaPlayer channel={decodedChannel} />;
+  return <ShakaPlayer channel={decodedChannel} />
 }
 
-export { Player };
+export { Player }

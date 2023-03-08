@@ -1,18 +1,18 @@
-import { useEffect, useRef } from "react";
-import "./App.css";
+import { useEffect, useRef } from 'react'
+import './App.css'
 
-import { channels } from "./data/mock_channels";
-import { ChannelProvider } from "./providers/channelProvider";
-import { Home } from "./containers/Home";
+import { channels } from './data/mock_channels'
+import { ChannelProvider } from './providers/channelProvider'
+import { Home } from './containers/Home'
 
 function App() {
-  const appRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<HTMLDivElement>(null)
 
   // Init App UI
   useEffect(() => {
     async function init() {}
-    init();
-  }, []);
+    init()
+  }, [])
 
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
         </div>
       </ChannelProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

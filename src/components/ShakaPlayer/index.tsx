@@ -1,1 +1,1 @@
-export * from "./ShakaPlayer";
+export * from './ShakaPlayer'
