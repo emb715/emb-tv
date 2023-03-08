@@ -77,7 +77,8 @@ function ScheduleSimple({ scheduleGroup, loading, error }: ScheduleSimpleProps) 
             timeText = `${times?.endOf(times?.endTime)} left`
           }
 
-          const startedStyle = times?.hasStarted() ? 'guide__item--STARTED' : ''
+          const startedStyle =
+            times?.hasStarted() && !times?.hasEnded() ? 'guide__item--STARTED' : ''
           const endedStyle = times?.hasEnded() ? 'guide__item--ENDED' : ''
 
           return (
