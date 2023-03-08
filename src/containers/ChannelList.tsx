@@ -13,11 +13,11 @@ function ChannelList() {
 
   return (
     <ChannelListSimple
-      onPressChannel={onChangeChannel}
-      onNextChannel={onNextChannel}
-      onPrevChannel={onPrevChannel}
-      channels={channels}
-      currentChannel={channel}
+      onPress={onChangeChannel}
+      onNext={onNextChannel}
+      onPrev={onPrevChannel}
+      items={channels}
+      current={channel}
     />
   );
 }
