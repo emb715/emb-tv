@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useRef, useReducer } from 'react'
 import { groupBy } from "lodash";
-import { getProgramTimes, ProgramTimes } from '../utils/getProgramTimes';
 import { getDateTime } from '../utils/timeHelpers';
 import {EPG_API_URL, EPG_API_FIELDS} from '../config';
 
@@ -51,14 +50,8 @@ type Program = {
   // images?: ProgramImage[],
 }
 
-// interface ProgramWithTimes extends Program {
-//   times: ProgramTimes
-// }
-type ProgramWithTimes = Program & {
-  times: ProgramTimes
-}
 
-function transformer(programs: ProgramRaw[]): ProgramWithTimes[] {
+function transformer(programs: ProgramRaw[]): Program[] {
   try {
     if (!programs) {      
       return []
@@ -76,7 +69,6 @@ function transformer(programs: ProgramRaw[]): ProgramWithTimes[] {
         liveChannelPid: program.LiveChannelPid.toLowerCase(),
         liveProgramPid: program.LiveProgramPid,
         // images,
-        times: getProgramTimes(program),
       }
       return payload
     })  
@@ -103,7 +95,7 @@ type UseScheduleOptions = {
   endTime?: number
 }
 
-type ScheduleType = Record<ProgramWithTimes['id'], ProgramWithTimes[]>
+type ScheduleType = Record<Program['id'], Program[]>
 
 function useScheduleFetch<T = ScheduleType>(
   epgIds: string[], 
@@ -193,7 +185,7 @@ function useScheduleFetch<T = ScheduleType>(
           endTime: endTime ?? time + 60000,
         }        
 
-        const url = `${EPG_API_URL}?liveChannelPids=${ids}&startTime=${timers.startTime}&endTime=${timers.endTime}&fields=${EPG_API_FIELDS}&includeRelations=Genre&orderBy=START_TIME`
+        const url = `${EPG_API_URL}schedules?liveChannelPids=${ids}&startTime=${timers.startTime}&endTime=${timers.endTime}&fields=${EPG_API_FIELDS}&includeRelations=Genre&orderBy=START_TIME`
         
         const response = await fetch(url, fetchOptions)
         if (!response.ok) {
@@ -224,4 +216,4 @@ function useScheduleFetch<T = ScheduleType>(
 }
 
 export { useScheduleFetch }
-export type { Program, ProgramRaw, ProgramRawImage, ProgramImage, ProgramWithTimes, UseScheduleOptions}
+export type { Program, ProgramRaw, ProgramRawImage, ProgramImage, UseScheduleOptions}

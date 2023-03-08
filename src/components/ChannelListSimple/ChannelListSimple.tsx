@@ -1,4 +1,4 @@
-import { useRef, useEffect, useReducer } from "react";
+import { useRef, useEffect } from "react";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useWindowResizeListener } from "../../hooks/useWindowResizeListener";
 import "./css/ChannelListSimple.css";
@@ -63,7 +63,6 @@ function ChannelListSimple({
   useEventListener(
     "mousedown",
     (event: any) => {
-      console.log("LOG: > useEventListener > mousedown", event);
       const element = listRef?.current;
       if (!element) return;
 
