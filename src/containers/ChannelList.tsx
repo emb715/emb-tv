@@ -1,14 +1,13 @@
-import { Channel } from "../data/mock_channels";
-import { useChannelContext } from "../providers/channelProvider";
-import { ChannelListSimple } from "../components/ChannelListSimple/ChannelListSimple";
+import type { Channel } from '../data/mock_channels'
+import { useChannelContext } from '../providers/channelProvider'
+import { ChannelListSimple } from '../components/ChannelListSimple'
 
 function ChannelList() {
-  const { onChangeChannel, onNextChannel, onPrevChannel, list, channel } =
-    useChannelContext();
-  const channels: Channel[] = Object.values(list || {});
+  const { onChangeChannel, onNextChannel, onPrevChannel, list, channel } = useChannelContext()
+  const channels: Channel[] = Object.values(list || {})
 
   if (!channels.length || !channel) {
-    return null;
+    return null
   }
 
   return (
@@ -19,7 +18,7 @@ function ChannelList() {
       items={channels}
       current={channel}
     />
-  );
+  )
 }
 
-export { ChannelList };
+export { ChannelList }
