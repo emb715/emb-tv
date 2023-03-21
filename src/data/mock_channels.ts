@@ -222,11 +222,17 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExNDAvbWFuaWZlc3QubXBk',
+        url: 'Ly9saXZlNS1vdHQuaXp6aWdvLnR2L291dC91L2Rhc2gvSEJPLUhEL2RlZmF1bHQubXBk',
         type: 'Y2xlYXJrZXk=',
         license:
-          'OTllZWZjMDY4ZGIzNTA5YjlmMGNmNWIzNDExNDIxOWQ6NmMyM2UzMWE0ZDgzYjU2OGU4NGFlYzYwOWE2M2ViYzk=',
+          'ZGYxOGY2YTA1YmFiMjhkODllNWRjMDFkODhmNGRlYjg6YmFjZWI1MjU0NjdjMGRiMjJiYTgzMDkwNjE2YzFhZDA=',
       },
+      //   {
+      //     url: 'Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExNDAvbWFuaWZlc3QubXBk',
+      //     type: 'Y2xlYXJrZXk=',
+      //     license:
+      //       'OTllZWZjMDY4ZGIzNTA5YjlmMGNmNWIzNDExNDIxOWQ6NmMyM2UzMWE0ZDgzYjU2OGU4NGFlYzYwOWE2M2ViYzk=',
+      //   },
     ],
   },
   {
@@ -244,11 +250,17 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'aHR0cHM6Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExMzcvbWFuaWZlc3QubXBk',
+        url: 'Ly9lZGdlLWxpdmUxNi1zbC5jdmF0dHYuY29tLmFyL2xpdmUvYzZlZHMvSEJPXzIvU0FfTGl2ZV9kYXNoX2VuYy9IQk9fMi5tcGQ=',
         type: 'Y2xlYXJrZXk=',
         license:
-          'MmEyYWVkMTdkYzYwNTBmYjlkZWU2ZTY1YTA2YjM5MjU6YmFjNTgxOGE2ZTExMzVkYjNjOWYyNGZiNzUyZjY5OWY=',
+          'YzkwY2M1N2FkMmM0MzZlNWE3N2RiMmY4ZDlkYjJkODU6MDRmNmM3Mzk4NGJkY2ZmZDAxMzA1MDYwODQ5NzkzNWQ=',
       },
+      //   {
+      //     url: 'aHR0cHM6Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExMzcvbWFuaWZlc3QubXBk',
+      //     type: 'Y2xlYXJrZXk=',
+      //     license:
+      //       'MmEyYWVkMTdkYzYwNTBmYjlkZWU2ZTY1YTA2YjM5MjU6YmFjNTgxOGE2ZTExMzVkYjNjOWYyNGZiNzUyZjY5OWY=',
+      //   },
     ],
   },
   {
@@ -266,11 +278,17 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'aHR0cHM6Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExNDEvbWFuaWZlc3QubXBk',
+        url: 'Ly9lZGdlLWxpdmUxNi1zbC5jdmF0dHYuY29tLmFyL2xpdmUvYzZlZHMvSEJPX1BsdXMvU0FfTGl2ZV9kYXNoX2VuYy9IQk9fUGx1cy5tcGQ=',
         type: 'Y2xlYXJrZXk=',
         license:
-          'Njc5NWEzMDNhOWU4NTE3ZmJjYTM4Mzc2YzBhZjJmNzY6MWJkYjMxNzIyOTA2NmFkMmQ3NGM0ODE0YTEzOGUxMzY=',
+          'ZjBlN2Y3ZDQ1ODk5MGVkZmFiN2I5OGI0MTI1NjQ2MTU6NzkyMDU3NTRiN2Y4NGE2MjY2MWMyZGJlOWRlNWRkNWQ=',
       },
+      //   {
+      //     url: 'aHR0cHM6Ly9kdHZvdHQtYWJjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExNDEvbWFuaWZlc3QubXBk',
+      //     type: 'Y2xlYXJrZXk=',
+      //     license:
+      //       'Njc5NWEzMDNhOWU4NTE3ZmJjYTM4Mzc2YzBhZjJmNzY6MWJkYjMxNzIyOTA2NmFkMmQ3NGM0ODE0YTEzOGUxMzY=',
+      //   },
     ],
   },
   {
@@ -288,10 +306,10 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'aHR0cHM6Ly9kdHZvdHQtY2JjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExMzkvbWFuaWZlc3QubXBk',
+        url: 'Ly9lZGdlLWxpdmUxNi1zbC5jdmF0dHYuY29tLmFyL2xpdmUvYzZlZHMvSEJPX0ZhbWlseS9TQV9MaXZlX2Rhc2hfZW5jL0hCT19GYW1pbHkubXBk',
         type: 'Y2xlYXJrZXk=',
         license:
-          'OGNiYTNmNmVlMTcyNTExMWEwNDkyOGQ4MWM1MzgwNDA6OTA1YWNjNTVmMzY2MzE0MzJmMjQyZTI3OGYxYmIwYjU=',
+          'NTM1NDczMTMyZjY4MDgyMTYwYjQ4OTQ4MmNhMzVmOGU6ZTkwZmQ5MWZjZDNmYzgwOWJlZDJiMWMwZDM3ZjcyOTc=',
       },
     ],
   },
@@ -310,10 +328,10 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'aHR0cHM6Ly9kdHZvdHQtY2JjLmFrYW1haXplZC5uZXQvZGFzaF9saXZlXzExNDMvbWFuaWZlc3QubXBk',
+        url: 'Ly9lZGdlLWxpdmUxNi1zbC5jdmF0dHYuY29tLmFyL2xpdmUvYzZlZHMvSEJPX1NpZ25hdHVyZS9TQV9MaXZlX2Rhc2hfZW5jL0hCT19TaWduYXR1cmUubXBk',
         type: 'Y2xlYXJrZXk=',
         license:
-          'NzIzNDhlMDc2MjU0NTBkMzgwNjM5NzFiODU1YjMyMjQ6YjRhNmQyZjhjZGQzMmJlNjY1MzdmMWE2MmZmYTYyZDY=',
+          'ZTg2NjQ5OWZiYzExNDlmNDk5ODk2NzIwNzVhYTNhNjg6ZDJkZDVjOTU2MjNjNjM0MzI0MDk4MWMyMjAyZmMzMTE=',
       },
     ],
   },
