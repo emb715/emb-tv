@@ -16,6 +16,9 @@ function Player() {
       url: atob(con.url),
       type: atob(con.type),
       license: atob(con.license),
+      // url: '//1210-vos.dtvott.com/DASH/manifest.mpd',
+      // type: 'clearkey',
+      // license: '2669509884ce361c9646b56ca5d51e7f:292bb70bac7757546a69e43f778c3cdc',
     })),
   }
 

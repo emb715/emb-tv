@@ -416,10 +416,12 @@ const channels: Channel[] = [
     },
     connections: [
       {
-        url: 'Ly8xMjEwLXZvcy5kdHZvdHQuY29tL0RBU0gvbWFuaWZlc3QubXBk',
+        //// Ly8xMjEwLXZvcy5kdHZvdHQuY29tL0RBU0gvbWFuaWZlc3QubXBk&key=MjY2OTUwOTg4NGNlMzYxYzk2NDZiNTZjYTVkNTFlN2Y=&key2=MjkyYmI3MGJhYzc3NTc1NDZhNjllNDNmNzc4YzNjZGM=
+        // 2669509884ce361c9646b56ca5d51e7f:292bb70bac7757546a69e43f778c3cdc
+        url: 'aHR0cHM6Ly9jZG4uY3ZhdHR2LmNvbS5hci9saXZlL2M2ZWRzL1N0dWRpb19Vbml2ZXJzYWwvU0FfTGl2ZV9kYXNoX2VuYy9TdHVkaW9fVW5pdmVyc2FsLm1wZA==',
         type: 'Y2xlYXJrZXk=',
         license:
-          'Yjg1NjlkYWRiMTU2MzIwNmEyYzJiYjBiZGI2NjU1Yjg6ZTE3ZmVjMWIxODk3YjViMWMyNTg4Mzc0OWE4OWNmNzY=',
+          'ZDliNTQxZTNjZDA2NGQ1Njk4NDNkYTQyNzg4ZDQyNjM6YmJhNWQyNmFkNTA1MWZiM2YyY2Y3ZTNkZDhhNGE3ZDg',
       },
     ],
   },

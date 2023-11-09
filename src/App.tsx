@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import './App.css'
 
 import { channels } from './data/mock_channels'
@@ -7,12 +7,6 @@ import { Home } from './containers/Home'
 
 function App() {
   const appRef = useRef<HTMLDivElement>(null)
-
-  // Init App UI
-  useEffect(() => {
-    async function init() {}
-    init()
-  }, [])
 
   return (
     <>

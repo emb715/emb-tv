@@ -180,8 +180,11 @@ const ShakaPlayer = ({ channel }: ShakaPlayerProps) => {
 
   const loadPlayer = () => {
     if (!playerInstance.current) return
+    const tempUrl =
+      'https://cdn2.eco.cdn.moderntv.eu/econocable/stream/UNIVERSALCH/10-20-hls-vtt/live.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DUNIVERSAL_stream_4o&_cdn_meta=userID%3D1642591434%2CdeviceID%3D535683365&_cdn_session=1406210147&_cdn_timestamp=1699422407&_cdn_token=41ee753936febb3235d1b6352383acac3237c299'
     playerInstance.current
       .load(currentConnection.url)
+      // .load(tempUrl)
       .then(function () {
         // This runs if the asynchronous load is successful.
         console.log('The video has now been loaded!')

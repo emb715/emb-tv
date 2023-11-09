@@ -133,6 +133,7 @@ function useScheduleFetch<T = ScheduleType>(
   const [state, dispatch] = useReducer(fetchReducer, initialState)
 
   const urlOrigin = EPG_API_URL ? new URL(EPG_API_URL).origin : null
+  console.log('LOG: > urlOrigin:', urlOrigin)
 
   const fetchOptions = {
     headers: {
