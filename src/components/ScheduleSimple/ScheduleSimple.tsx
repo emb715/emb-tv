@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { orderBy } from 'lodash'
 import { useInterval } from '../../hooks/useInterval'
 import { getTimeSpan, TimeSpan } from '../../utils/getTimeSpan'
 import './ScheduleSimple.scss'
 
-function NoPrograms(message: string = 'No programs') {
+function NoPrograms(message = 'No programs') {
   return (
     <div id="schedule-simple" className="guide__list guide__list--EMPTY">
       <div className="guide__item">{message}</div>
@@ -49,10 +49,6 @@ function ScheduleSimple({ scheduleGroup, loading, error }: ScheduleSimpleProps) 
   useInterval(() => {
     setScheduleTimes(getTimes())
   }, 20000) // 20 seconds
-
-  useEffect(() => {
-    setScheduleTimes(getTimes())
-  }, [scheduleGroup, getTimes])
 
   if (error) {
     return NoPrograms()
