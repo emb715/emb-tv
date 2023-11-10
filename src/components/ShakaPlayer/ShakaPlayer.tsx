@@ -1,4 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as shaka from 'shaka-player/dist/shaka-player.ui'
 import 'shaka-player/dist/controls.css'
@@ -50,12 +51,12 @@ class CustomFullScreenButton extends shaka.ui.Element {
     this.parent.appendChild(this.button_)
 
     // Listen for clicks on the button to start the next playback
-    this.eventManager.listen(this.button_, 'click', (e: any) => {
-      var _appContainer = document.getElementById('app')
+    this.eventManager.listen(this.button_, 'click', () => {
+      const _appContainer = document.getElementById('app')
       toggleFullScreen(_appContainer)
     })
     this.eventManager.listen(document, 'fullscreenchange', () => {
-      var isFullScreenEnabled = this.controls.isFullScreenEnabled()
+      const isFullScreenEnabled = this.controls.isFullScreenEnabled()
       this.button_.textContent = isFullScreenEnabled ? FULLSCREEN_EXIT : FULLSCREEN
 
       this.button_.ariaLabel = isFullScreenEnabled ? 'Exit Full Screen' : 'Full Screen'
@@ -124,7 +125,7 @@ const ShakaPlayer = ({ channel }: ShakaPlayerProps) => {
     const videoContainerElement = videoContainer.current
 
     //Initialize shaka player
-    var localPlayer = new shaka.Player(videoElement)
+    const localPlayer = new shaka.Player(videoElement)
 
     //register controls
     shaka.ui.Controls.registerElement('custom-fullscreen', new CustomFullScreenButton.Factory())
@@ -190,10 +191,9 @@ const ShakaPlayer = ({ channel }: ShakaPlayerProps) => {
   }
 
   const getPlayerConfig = () => {
+    const [keyId, key] = currentConnection.license.split(':')
     switch (currentConnection.type) {
       case 'clearkey':
-        const [keyId, key] = currentConnection.license.split(':')
-
         return {
           drm: {
             clearKeys: {

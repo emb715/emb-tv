@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import type { Channel } from '../data/mock_channels'
 
 function saveChannelId(channelId: Channel['id']) {
@@ -34,13 +34,7 @@ type ChannelContextType = {
   onPrevChannel: () => void
 }
 
-const ChannelContext = React.createContext<ChannelContextType>({
-  channel: undefined,
-  list: undefined,
-  onChangeChannel: () => {},
-  onNextChannel: () => {},
-  onPrevChannel: () => {},
-})
+const ChannelContext = React.createContext<ChannelContextType | undefined>(undefined)
 
 const initialState: ChannelContextState = {
   channel: undefined,
@@ -63,11 +57,10 @@ function ChannelProvider({
   children,
   defaultChannelId,
   channelList,
-}: {
-  children: React.ReactNode
+}: PropsWithChildren<{
   defaultChannelId?: Channel['id']
   channelList: Channel[]
-}) {
+}>) {
   const savedChannelId = getChannelId()
   const currentChannelId = savedChannelId || defaultChannelId
   const defaultChannel = channelList.find((c) => c.id === currentChannelId) ?? channelList[0]

@@ -1,26 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { channels } from './data/mock_channels'
-import { ChannelProvider } from './providers/channelProvider'
 import { Home } from './containers/Home'
+import { initializeChannels } from './hooks/useChannels'
+
+// Populate Channels
+initializeChannels(channels)
+
+const queryClient = new QueryClient()
 
 function App() {
   const appRef = useRef<HTMLDivElement>(null)
 
-  // Init App UI
-  useEffect(() => {
-    async function init() {}
-    init()
-  }, [])
-
   return (
     <>
-      <ChannelProvider channelList={channels}>
+      <QueryClientProvider client={queryClient}>
         <div id="app" ref={appRef}>
           <Home />
         </div>
-      </ChannelProvider>
+      </QueryClientProvider>
     </>
   )
 }

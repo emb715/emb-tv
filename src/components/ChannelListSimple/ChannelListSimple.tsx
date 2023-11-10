@@ -38,7 +38,7 @@ function ChannelListSimple({
   }, [items, current])
 
   // Slide channels on drag in element. (Only for desktop)
-  const onMouseMove = (event: any) => {
+  const onMouseMove = (event: MouseEvent | Event | KeyboardEvent) => {
     const element = listRef?.current
     if (!element) return
 
@@ -46,11 +46,13 @@ function ChannelListSimple({
       listSlideRef.current = true
     }
     const elementPosition = listSlidePositionRef.current
-    const dx = event.clientX - elementPosition.x
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const dx = event?.clientX - elementPosition.x
     element.scrollLeft = elementPosition.left - dx
   }
 
-  useEventListener('mouseup', (e) => {
+  useEventListener('mouseup', () => {
     const element = listRef?.current
     if (!element) return
 
@@ -62,7 +64,7 @@ function ChannelListSimple({
 
   useEventListener(
     'mousedown',
-    (event: any) => {
+    (event: MouseEvent | Event | KeyboardEvent | MediaQueryListEvent) => {
       const element = listRef?.current
       if (!element) return
 
@@ -70,6 +72,8 @@ function ChannelListSimple({
       element.style.removeProperty('user-select')
       listSlidePositionRef.current = {
         left: element.scrollLeft,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         x: event?.clientX,
       }
       if (!listSlideRef.current) {

@@ -1,12 +1,10 @@
-import type { Channel } from '../data/mock_channels'
-import { useChannelContext } from '../providers/channelProvider'
 import { ChannelListSimple } from '../components/ChannelListSimple'
+import { useChannels } from '../hooks/useChannels'
 
 function ChannelList() {
-  const { onChangeChannel, onNextChannel, onPrevChannel, list, channel } = useChannelContext()
-  const channels: Channel[] = Object.values(list || {})
+  const { current, channels, onNextChannel, onPrevChannel, onChangeChannel } = useChannels()
 
-  if (!channels.length || !channel) {
+  if (!channels.length || !current) {
     return null
   }
 
@@ -16,7 +14,7 @@ function ChannelList() {
       onNext={onNextChannel}
       onPrev={onPrevChannel}
       items={channels}
-      current={channel}
+      current={current}
     />
   )
 }

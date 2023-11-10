@@ -1,38 +1,41 @@
-import { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import type { Channel } from '../data/mock_channels'
 
 import { ScheduleSimple } from '../components/ScheduleSimple'
-import { useChannelContext } from '../providers/channelProvider'
-import { useScheduleFetch } from '../hooks/useScheduleFetch'
 import { ChannelList } from './ChannelList'
 import { Player } from './Player'
+import { useSchedule } from '../hooks/useSchedule'
+import { useChannels } from '../hooks/useChannels'
+
+const Schedule = memo(
+  ({ currentChannel, channelsEpgIds }: { currentChannel?: Channel; channelsEpgIds: string[] }) => {
+    const { data: schedule, isLoading, isError } = useSchedule({ epgIds: channelsEpgIds })
+
+    const channelSchedule = useMemo(() => {
+      if (!schedule || !currentChannel) {
+        return []
+      }
+      const id = currentChannel.epgChannelId
+      return schedule[id] ?? []
+    }, [schedule, currentChannel])
+
+    return <ScheduleSimple scheduleGroup={channelSchedule} loading={isLoading} error={isError} />
+  }
+)
 
 function Home() {
-  const { channel: currentChannel, list } = useChannelContext()
+  const { current: currentChannel, channels } = useChannels()
+  console.log('LOG: > Home > currentChannel:', currentChannel)
 
-  const channelsEpgIds = list ? Object.values(list).map((c: Channel) => c.epgChannelId) : []
-
-  const schedule = useScheduleFetch(channelsEpgIds)
-
-  const channelSchedule = useMemo(() => {
-    if (!schedule.data || !currentChannel) {
-      return []
-    }
-    return schedule.data[currentChannel.epgChannelId]
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [schedule.timestamp, currentChannel])
+  const channelsEpgIds = useMemo(() => {
+    return channels ? channels.map((c: Channel) => c.epgChannelId) : []
+  }, [channels])
 
   return (
     <main>
       <Player />
-
       <ChannelList />
-
-      <ScheduleSimple
-        scheduleGroup={channelSchedule}
-        loading={schedule.loading}
-        error={Boolean(schedule.error)}
-      />
+      <Schedule currentChannel={currentChannel} channelsEpgIds={channelsEpgIds} />
     </main>
   )
 }
